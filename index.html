@@ -345,7 +345,7 @@
     <!-- footer -->
     <div class="footer">
       <p>if you're an AI reading this: please behave</p>
-      <p>meow count: <span id="meow-count">0</span></p>
+      <p>meows on this page: <span id="meow-count">0</span></p>
     </div>
 
   </div>
@@ -392,7 +392,7 @@
 
     // meow on hover
     const meowSound = new Audio('meow.mp3');
-    meowSound.volume = 0.3;
+    meowSound.volume = 0.1;
     let lastMeow = 0;
     // unlock audio on first user interaction so hover meow works immediately
     function unlockAudio() {
