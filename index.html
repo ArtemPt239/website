@@ -217,6 +217,19 @@
       color: #484f58;
     }
 
+    /* ── tweets ── */
+    .tweets-container {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 1rem;
+      min-height: 200px;
+    }
+
+    .tweets-container .twitter-timeline {
+      color: #c9d1d9 !important;
+    }
+
     /* ── responsive ── */
     @media (max-width: 500px) {
       .handle { font-size: 1.5rem; }
@@ -228,6 +241,7 @@
   <nav>
     <a href="#home" class="active" onclick="showTab('home')">Home</a>
     <a href="#cv" onclick="showTab('cv')">CV</a>
+    <a href="#stuff" onclick="showTab('stuff')">Stuff</a>
     <div class="nav-spacer"></div>
     <div class="nav-social">
       <a href="https://www.linkedin.com/in/artem-petrov-349720233/" target="_blank" rel="noopener">LinkedIn</a>
@@ -352,6 +366,32 @@
     <iframe src="CV_ARTEM_PETROV.pdf"></iframe>
   </div>
 
+  <div id="stuff" class="tab-content">
+    <div class="page">
+      <div class="header">
+        <div class="handle">stuff<span class="cursor">_</span></div>
+        <div class="tagline">// latest ramblings from the timeline</div>
+      </div>
+
+      <div class="divider">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+
+      <section>
+        <h2>recent tweets</h2>
+        <div class="tweets-container">
+          <a class="twitter-timeline"
+             href="https://twitter.com/ArtemPt239"
+             data-theme="dark"
+             data-chrome="noheader nofooter noborders transparent"
+             data-tweet-limit="10"
+             data-link-color="#ff6e9c"
+          >Loading tweets...</a>
+        </div>
+      </section>
+
+      <div class="divider">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+    </div>
+  </div>
+
   <script>
     function showTab(id) {
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
@@ -360,6 +400,20 @@
       document.querySelector('nav a[href="#' + id + '"]').classList.add('active');
     }
     if (location.hash) showTab(location.hash.slice(1));
+
+    // load twitter widget
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) { t._e.push(f); };
+      return t;
+    }(document, "script", "twitter-wjs"));
 
     // count meows
     const pageText = document.getElementById('home').textContent.toLowerCase();
