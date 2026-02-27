@@ -240,7 +240,7 @@
 
     <!-- header -->
     <div class="header">
-      <div class="handle">ArtemPt239<span class="cursor">_</span></div>
+      <div class="handle"><span id="meow-trigger">ArtemPt239</span><span class="cursor">_</span></div>
       <div class="tagline">// breaking AI so you don't have to</div>
     </div>
 
@@ -352,7 +352,12 @@
 
     // meow on hover
     const meowSound = new Audio('meow.mp3');
-    document.querySelector('.handle').addEventListener('mouseenter', () => {
+    meowSound.volume = 0.3;
+    let lastMeow = 0;
+    document.getElementById('meow-trigger').addEventListener('mouseenter', () => {
+      const now = Date.now();
+      if (now - lastMeow < 8000) return;
+      lastMeow = now;
       meowSound.currentTime = 0;
       meowSound.play();
     });
