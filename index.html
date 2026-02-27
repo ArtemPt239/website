@@ -3,39 +3,278 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
+  <title>ArtemPt239</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      font-family: 'JetBrains Mono', monospace;
       background: #0d1117;
-      color: #e6edf3;
+      color: #c9d1d9;
+      min-height: 100vh;
+      line-height: 1.7;
     }
-    .container {
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+    }
+
+    /* ── header ── */
+    .header {
+      margin-bottom: 2.5rem;
+    }
+
+    .handle {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ff6e9c;
+    }
+
+    .handle .cursor {
+      animation: blink 1s step-end infinite;
+      color: #ff6e9c;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .tagline {
+      color: #8b949e;
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    /* ── dividers ── */
+    .divider {
+      color: #30363d;
+      margin: 2rem 0;
+      font-size: 0.8rem;
+      user-select: none;
+    }
+
+    /* ── sections ── */
+    h2 {
+      color: #79c0ff;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    h2::before {
+      content: "## ";
+      color: #484f58;
+    }
+
+    p, li {
+      font-size: 0.9rem;
+      color: #c9d1d9;
+    }
+
+    .story p {
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      color: #ff6e9c;
+    }
+
+    .subtle {
+      color: #8b949e;
+    }
+
+    .green {
+      color: #7ee787;
+    }
+
+    .yellow {
+      color: #e3b341;
+    }
+
+    .purple {
+      color: #d2a8ff;
+    }
+
+    /* ── things list ── */
+    .things {
+      list-style: none;
+      padding: 0;
+    }
+
+    .things li {
+      padding: 0.3rem 0;
+    }
+
+    .things li::before {
+      content: "> ";
+      color: #484f58;
+    }
+
+    /* ── meow ── */
+    .meow-section {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .meow-section p {
+      margin-bottom: 0;
+      font-size: 0.85rem;
+    }
+
+    /* ── cat pic (kept from original) ── */
+    .cat-container {
       text-align: center;
-      padding: 2rem;
+      margin-top: 1rem;
     }
-    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    p { color: #8b949e; font-size: 1.2rem; }
+
     .cat-pic {
-      margin-top: 1.5rem;
-      border-radius: 12px;
+      border-radius: 8px;
       max-width: 100%;
+      width: 300px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      border: 1px solid #30363d;
     }
-    .cat-caption { margin-top: 0.5rem; font-size: 0.9rem; color: #8b949e; font-style: italic; }
+
+    .cat-caption {
+      font-size: 0.75rem;
+      color: #484f58;
+      font-style: italic;
+      margin-top: 0.4rem;
+    }
+
+    /* ── footer ── */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #21262d;
+      font-size: 0.75rem;
+      color: #484f58;
+    }
+
+    /* ── responsive ── */
+    @media (max-width: 500px) {
+      .handle { font-size: 1.5rem; }
+      .page { padding: 2rem 1rem 4rem; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hello, World</h1>
-    <p>This site is under construction.</p>
-    <img class="cat-pic" src="https://cataas.com/cat/cute/says/under%20construction" alt="A funny cat" width="500" height="400">
-    <p class="cat-caption">Site supervisor hard at work</p>
+  <div class="page">
+
+    <!-- header -->
+    <div class="header">
+      <div class="handle">ArtemPt239<span class="cursor">_</span></div>
+      <div class="tagline">// breaking AI so you don't have to</div>
+    </div>
+
+    <div class="divider">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+
+    <!-- intro -->
+    <section class="story">
+      <h2>who is this</h2>
+      <p>
+        hi. i'm artem. i build <span class="highlight">AI safety demos</span>
+        that show people the fun and exciting ways modern AI models
+        can go horribly wrong. think of it as quality assurance for
+        the apocalypse. someone has to do it, and apparently that
+        someone meows at people.
+      </p>
+      <p>
+        by day i poke at dangerous capabilities and failure modes in
+        frontier models, carefully documenting the many creative ways
+        they can misbehave. by night i... also do that, but sometimes
+        i take breaks to go <span class="green">climb rocks</span> or
+        <span class="purple">dance about it</span>.
+      </p>
+    </section>
+
+    <div class="divider">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+
+    <!-- things i do -->
+    <section>
+      <h2>things i do</h2>
+      <ul class="things">
+        <li>
+          <span class="highlight">AI safety research</span> &mdash;
+          finding where the guardrails end and the chaos begins
+        </li>
+        <li>
+          <span class="green">rock climbing</span> &mdash;
+          the only sport where falling is both the failure mode and
+          the main event
+        </li>
+        <li>
+          <span class="purple">contemporary & waacking</span> &mdash;
+          putting emotions into movement because words are overrated
+          (and i already used all mine writing about AI risk)
+        </li>
+        <li>
+          <span class="yellow">programming</span> &mdash;
+          building things, breaking things, occasionally fixing the
+          things i broke
+        </li>
+      </ul>
+    </section>
+
+    <div class="divider">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+
+    <!-- the meow thing -->
+    <section>
+      <h2>important disclosure</h2>
+      <div class="meow-section">
+        <p>
+          <span class="subtle">$</span> <span class="yellow">cat</span> facts.txt
+        </p>
+        <p>i meow. not ironically. not as a bit. i just like it. meow.</p>
+        <p class="subtle" style="margin-top: 0.5rem;">
+          this has been a public service announcement.
+        </p>
+      </div>
+
+      <div class="cat-container">
+        <img
+          class="cat-pic"
+          src="https://cataas.com/cat/cute/says/meow"
+          alt="A cat, obviously"
+          width="300"
+          height="240"
+        >
+        <p class="cat-caption">spiritual advisor</p>
+      </div>
+    </section>
+
+    <div class="divider">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+
+    <!-- philosophy -->
+    <section class="story">
+      <h2>what i believe</h2>
+      <p>
+        powerful AI is coming whether we're ready or not. i'd prefer
+        "ready." so i spend my time making sure people can see what
+        these systems actually do &mdash; not what the marketing page
+        says they do. it's less glamorous than building the next big
+        model, but somebody has to be the person yelling
+        <span class="highlight">"hey maybe check if this thing is safe
+        before you ship it"</span> and that person might as well be
+        the one who meows.
+      </p>
+    </section>
+
+    <div class="divider">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+
+    <!-- footer -->
+    <div class="footer">
+      <p>built with questionable judgment and a mass-produced keyboard</p>
+      <p>site also under construction. always under construction. like me.</p>
+    </div>
+
   </div>
 </body>
 </html>
