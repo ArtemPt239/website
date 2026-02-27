@@ -307,17 +307,6 @@
           this has been a public service announcement.
         </p>
       </div>
-
-      <div class="cat-container">
-        <img
-          class="cat-pic"
-          src="https://cataas.com/cat/cute"
-          alt="A cat, obviously"
-          width="300"
-          height="240"
-        >
-        <p class="cat-caption">spiritual advisor</p>
-      </div>
     </section>
 
     <div class="divider">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
@@ -360,6 +349,13 @@
       document.querySelector('nav a[href="#' + id + '"]').classList.add('active');
     }
     if (location.hash) showTab(location.hash.slice(1));
+
+    // meow on hover
+    const meowSound = new Audio('meow.mp3');
+    document.querySelector('.handle').addEventListener('mouseenter', () => {
+      meowSound.currentTime = 0;
+      meowSound.play();
+    });
 
     // count meows
     const pageText = document.getElementById('home').textContent.toLowerCase();
