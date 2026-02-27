@@ -394,12 +394,20 @@
     const meowSound = new Audio('meow.mp3');
     meowSound.volume = 0.3;
     let lastMeow = 0;
+    // unlock audio on first user interaction so hover meow works immediately
+    function unlockAudio() {
+      meowSound.play().then(() => { meowSound.pause(); meowSound.currentTime = 0; }).catch(() => {});
+      document.removeEventListener('pointerdown', unlockAudio);
+      document.removeEventListener('pointermove', unlockAudio);
+    }
+    document.addEventListener('pointerdown', unlockAudio);
+    document.addEventListener('pointermove', unlockAudio);
     document.getElementById('meow-trigger').addEventListener('mouseenter', () => {
       const now = Date.now();
       if (now - lastMeow < 8000) return;
       lastMeow = now;
       meowSound.currentTime = 0;
-      meowSound.play();
+      meowSound.play().catch(() => {});
     });
 
     // load twitter widget
